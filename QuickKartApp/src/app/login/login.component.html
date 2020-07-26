@@ -1,0 +1,94 @@
+<!--<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)" style="background-color:beige;">
+        <div class="form-control">
+          <div class="row">
+            <div class="col-md-4" style="text-align:left">
+              <label>EmailId:</label>
+            </div>
+            <div class="col-md-8">
+              <input type="email" name="email" ngModel />
+            </div>
+          </div>
+        </div>
+        <div class="form-control">
+          <div class="row">
+            <div class="col-md-4" style="text-align:left">
+              <label>password:</label>
+            </div>
+            <div class="col-md-8">
+              <input type="password" name="password" ngModel/>
+            </div>
+          </div>
+        </div>
+        <div class="form-control">
+          <div class="row">
+            <div class="col-md-12" style="text-align:center">
+              <button type="submit" title="Submit Login Form" name="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>-->
+
+<div class="container">
+  <form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)" style="background-color:beige;">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <h2>Login</h2>
+        <h6 style="text-align:right;color:dimgrey;font-size:small">All fields are mandatory</h6>
+        <div class="form-group">
+          <div class="col" style="text-align:left">
+            <label>Email Id</label>
+          </div>
+          <div class="col; input-group">
+            <input #emailRef="ngModel" type="email" name="email" class="form-control" ngModel required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+          </div>
+          <div *ngIf="emailRef.errors && (emailRef.dirty || emailRef.touched)" style="text-align:left; padding-top:5px; color:red;">
+
+            <div [hidden]="!emailRef.errors.required">
+              <b style="font-size:smaller">emailId is mandatory</b>
+            </div>
+            <div [hidden]="!emailRef.errors.pattern">
+              <b style="font-size:smaller">emailId is not in proper format</b>
+            </div>
+
+          </div>
+            <!--&nbsp;
+    <div>
+      <b style="font-size:smaller">{{emailRef.className}}</b>
+    </div>-->
+
+          </div>
+          <div class="form-group">
+            <div class="col" style="text-align:left">
+              <label>Password</label>
+            </div>
+            <div class="col; input-group">
+              <input #passwordRef="ngModel" type="password" name="password" class="form-control" ngModel required>
+            </div>
+            <div style="color:red;padding-left:5px;text-align:left;">
+              <div [hidden]="passwordRef.valid || passwordRef.pristine">
+                <b style="font-size:smaller"> Password is mandatory</b>
+              </div>
+            </div>
+            <!--<div>
+      <b style="font-size:smaller">{{passwordRef.className}}</b>
+    </div>-->
+          </div>
+          <div class="form-group"  style="text-align:left">
+            <button type="submit" style="background-color:forestgreen;color:black"[disabled]="!loginForm.form.valid"class="btn">Login</button>
+          </div>
+        </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+  </form>
+</div>

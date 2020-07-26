@@ -1,0 +1,64 @@
+<div>
+  <h2 style="text-align:center">View Products</h2>
+  <div calss="table-responsive">
+    <br />
+    <div class="row">
+      <div class="col-md-3" style="text-align:right">
+        <label> Search:</label>
+      </div>
+      <div class="col-md-3">
+       <input type="text"(change)="searchProduct(myInput.value)" class="form-control" placeholder="search product"  ngModel #myInput />
+        
+      </div>
+      <div class="col-md-4" style="text-align:right">
+        <label>Filter products:</label>
+      </div>
+      <div class="col-md-2">
+        <select class="form-control" #categorydrop (change)="searchProductByCategory(categorydrop.value)">
+          <option value="0">All Categories</option>
+          <option *ngFor="let category of categories" value={{category.CategoryId}}>
+            {{category.CategoryName}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <br />
+    <!--<table class="table" style="background-color:rgba(220,230,242,1); font-size:12pt" *ngIf="products;else elseBlock">-->
+    <table class="table" style="background-color:rgba(220,230,242,1); font-size:12pt" *ngIf="filteredProducts && filteredProducts.length">
+      <tr>
+        <th style="text-align:center">Product Id</th>
+        <th style="text-align:center">Product Name</th>
+        <th style="text-align:center">Category Id</th>
+        <th style="text-align:center">Price</th>
+        <th style="text-align:center">Quantity Available</th>
+        <th style="text-align:center">Action</th>
+      </tr>
+
+      <tr *ngFor="let product of filteredProducts" style="background-color:white">
+        <td>{{product.ProductId}}</td>
+        <td>{{product.ProductName}}</td>
+        <td>{{product.CategoryId}}</td>
+        <td>{{product.Price}}</td>
+        <td>{{product.QuantityAvailable}}</td>
+        <!--<td><button title="add to cart">Add to Cart</button></td>-->
+        <td><img title="Add to cart" [src]="imageSrc"></td>
+
+      </tr>
+
+    </table>
+    <!--<ng-template #elseBlock>
+    <h4 style="text-align:center" class="jumbotron"> Products not available</h4>
+  </ng-template>-->
+
+    <div *ngIf="showMessage">
+      <h2 class="jumbotron">No products Available</h2>
+    </div>
+
+    <!--<ng-template [ngIf]="showMessage">
+    <h2 class="jumbotron">No Products</h2>
+  </ng-template>-->
+    <!--<div template="ngif showMessage">
+    <h2 class="jumbotron">No Products</h2>
+  </div>-->
+  </div>
+</div>

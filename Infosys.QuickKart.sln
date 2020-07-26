@@ -3,7 +3,37 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1062
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infosys.QuickKart.BusinessLayer", "Infosys.QuickKart.BusinessLayer\Infosys.QuickKart.BusinessLayer.csproj", "{4C155665-D54D-44B1-89B9-B6CD29F34DAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infosys.QuickKart.Common", "Infosys.QuickKart.Common\Infosys.QuickKart.Common.csproj", "{416C11C2-7229-43A1-BDC4-C44F2B8FB870}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infosys.QuickKart.DataAccessLayer", "Infosys.QuickKart.DataAccessLayer\Infosys.QuickKart.DataAccessLayer.csproj", "{C0371CEF-5AE7-4EA9-9871-F86909C40579}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infosys.QuickKart.Services", "Infosys.QuickKart.Services\Infosys.QuickKart.Services.csproj", "{53AE67A5-91A9-411D-8728-CAF006731CF2}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C155665-D54D-44B1-89B9-B6CD29F34DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C155665-D54D-44B1-89B9-B6CD29F34DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C155665-D54D-44B1-89B9-B6CD29F34DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C155665-D54D-44B1-89B9-B6CD29F34DAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{416C11C2-7229-43A1-BDC4-C44F2B8FB870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{416C11C2-7229-43A1-BDC4-C44F2B8FB870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{416C11C2-7229-43A1-BDC4-C44F2B8FB870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{416C11C2-7229-43A1-BDC4-C44F2B8FB870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0371CEF-5AE7-4EA9-9871-F86909C40579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0371CEF-5AE7-4EA9-9871-F86909C40579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0371CEF-5AE7-4EA9-9871-F86909C40579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0371CEF-5AE7-4EA9-9871-F86909C40579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53AE67A5-91A9-411D-8728-CAF006731CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53AE67A5-91A9-411D-8728-CAF006731CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53AE67A5-91A9-411D-8728-CAF006731CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53AE67A5-91A9-411D-8728-CAF006731CF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

@@ -1,0 +1,16 @@
+<div class="container">
+  <table class="table">
+    <tr style="background-color:deepskyblue">
+      <th>ProductName</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total amount</th>
+    </tr>
+    <tr *ngFor="let c of cart" style="background-color:skyblue">
+      <th>{{c.ProductName}}</th>
+      <th>{{c.Price}}</th>
+      <th>{{c.Quantity}}</th>
+      <th>{{c.Price *c.Quantity}}</th>
+    </tr>
+  </table>
+</div>
