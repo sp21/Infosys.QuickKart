@@ -1,0 +1,48 @@
+<div *ngIf="commonLayout">
+  <app-commom-layout></app-commom-layout>
+</div>
+<div *ngIf="customerLayout">
+  <app-customer-layout></app-customer-layout>
+</div>
+<div class="container">
+  <form #addReviewForm="ngForm" (ngSubmit)="submitForm(addReviewForm)">
+    <br /><br />
+    <div class="form-group row">
+      <label for="productId" class="col-sm-2 col-form-label">ProductId</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" readonly id="productId"class="form-control" name="ProductId" placeholder="{{productId}}"  ngModel>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="productName" class="col-sm-2 col-form-label">ProductName</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="productName" name="ProductName" class="form-control"placeholder="{{productName}}" readonly ngModel>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="reviewRating" class="col-sm-2 col-form-label">Rating</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="reviewRating"class="form-control" name="ReviewRating" ngModel>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="Comment" class="col-sm-2 col-form-label">Comments</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="comments"class="form-control"name="Comments" ngModel>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-2">
+        <button class="btn" type="submit" [disabled]="addReviewForm.form.valid"class="form-control" style="background-color:forestgreen;color:white" ngModel>Rate Product</button>
+      </div>
+      <div class="col-sm-2">
+        <button class="form-control" class="btn" type="reset" style="background-color:forestgreen; color:white" ngModel>RESET</button>
+      </div>
+      <div class="col-sm-4"></div>
+
+    </div>
+    {{comments}}
+    {{ratings}}
+  </form>
+</div>

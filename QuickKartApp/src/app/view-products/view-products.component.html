@@ -1,3 +1,10 @@
+
+<div *ngIf="commonLayout">
+  <app-commom-layout></app-commom-layout>
+</div>
+<div *ngIf="customerLayout">
+  <app-customer-layout></app-customer-layout>
+</div>
 <div>
   <h2 style="text-align:center">View Products</h2>
   <div calss="table-responsive">
@@ -41,9 +48,9 @@
         <td>{{product.Price}}</td>
         <td>{{product.QuantityAvailable}}</td>
         <!--<td><button title="add to cart">Add to Cart</button></td>-->
-        <td><img title="Add to cart" [src]="imageSrc"></td>
+        <td><img title="Add to cart" [src]="imageSrc" (click)="addToCart(product)"></td>
 
-      </tr>
+      </tr> 
 
     </table>
     <!--<ng-template #elseBlock>

@@ -1,19 +1,28 @@
+<div *ngIf="commonLayout">
+  <app-commom-layout></app-commom-layout>
+</div>
+<div *ngIf="customerLayout">
+  <app-customer-layout></app-customer-layout>
+</div>
+
 <div class="Container">
   <p style="text-align:left">you have purchased the following products</p>
   <div class="ngForm">
     <div class="table">
-      <table class="table" style="background-color:rgba(220,230,242,1); font-size:12pt" >
+      <table class="table" style="background-color:rgba(220,230,242,1); font-size:12pt">
         <tr>
           <th>PurchaseId</th>
           <th>ProductName</th>
           <th>Quantity Purchased</th>
           <th>Date of purchase</th>
+          <th>Action</th>
         </tr>
         <tr *ngFor="let p of purchase " style="background-color:ghostwhite">
           <th>{{p.PurchaseId}}</th>
           <th>{{p.ProductName}}</th>
           <th>{{p.QuantityPurchased}}</th>
           <th>{{p.PurchaseDate}}</th>
+          <th><button class="button" (click)="rateProduct(p)">Rate Product</button></th>
         </tr>
 
       </table>

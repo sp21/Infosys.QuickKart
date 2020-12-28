@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../quickKart-Interfaces/product';
 import { ICategory } from '../quickKart-Interfaces/category';
 import { ProductService } from '../quickKart-Services/product-service/product.service';
+import { UserService } from '../quickKart-Services/user-service/user.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-view-products',
   templateUrl: './view-products.component.html',
@@ -14,7 +16,22 @@ export class ViewProductsComponent implements OnInit {
   filteredProducts: IProduct[];
   imageSrc: string;
   showMessage: boolean = false;
-  constructor(private _productService: ProductService) { }
+  userRole: string;
+  userName: string;
+  commonLayout: boolean = false;
+  customerLayout: boolean = false;
+  status: boolean = false;
+  errMsg: string;
+  constructor(private _productService: ProductService, private userService: UserService, private router: Router) {
+    this.userRole = sessionStorage.getItem("userRole");
+    this.userName = sessionStorage.getItem("userName");
+    if (this.userRole == "Customer") {
+      this.customerLayout = true;
+    }
+    else {
+      this.commonLayout = true;
+    }
+  }
   searchByCategoryId: string = "0";
   searchByProductName: string;
   ngOnInit(): void {
@@ -95,6 +112,28 @@ export class ViewProductsComponent implements OnInit {
     else {
       this.filteredProducts = this.products.filter(prod => prod.CategoryId.toString() == this.searchByCategoryId);
 
+    }
+  }
+
+  addToCart(prod: IProduct) {
+    if (this.userRole == null) {
+      this.router.navigate(['/login']);
+    }
+    else {
+      this.userService.addProductToCart(prod.ProductId, this.userName).subscribe(
+        responseProductData => {
+          this.status = responseProductData;
+          if (responseProductData) {
+            alert("Product added sucessfully.")
+          }
+        },
+        responseProductError => {
+          this.errMsg = responseProductError,
+            console.log(this.errMsg),
+            alert("Sorry, something went wrong. Please try again after sometime.")
+        },
+        () => console.log("AddToCart method executed successfully")
+      );
     }
   }
 }

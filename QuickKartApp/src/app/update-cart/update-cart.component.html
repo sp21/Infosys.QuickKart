@@ -1,0 +1,51 @@
+<app-customer-layout></app-customer-layout>
+<div class="myContent">
+  <div class="container">
+    <form #updateCartForm="ngForm"(ngSubmit)="updateCart(prodQuantity.value)">
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <h4 style="text-align:center">Update Cart</h4>
+          <h6 style="text-align:right;color:dimgrey;font-size:small">All fields are mandatory</h6>
+          <div class="form-group">
+            <div class="col" style="text-align:left">
+              <label>Product Id</label>
+            </div>
+            <div class="col; input-group">
+              <input type="text" [ngModel]="productId"name="prodId" class="form-control qkinput" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col" style="text-align:left">
+              <label>Product Name</label>
+            </div>
+            <div class="col; input-group">
+              <input type="text" name="prodName" [ngModel]="productName" class="form-control qkinput" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col" style="text-align:left">
+              <label>Quantity</label>
+            </div>
+            <div class="col; input-group">
+              <input type="number" name="prodQuantity" #prodQuantity="ngModel" [ngModel]="quantity" class="form-control qkinput" min="1" max="" required ngModel>
+              <div *ngIf="prodQuantity.errors && (prodQuantity.dirty || prodQuantity.touched)" class="text-danger-validation">
+                <div [hidden]="!prodQuantity.errors.required">
+                  <br />
+                  Please enter the quantity.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" style="text-align:left">
+            <button type="submit" [disabled]="!updateCartForm.form.valid" class="btn">Update</button> &nbsp;&nbsp;
+            <a routerLink="/viewCart">Cancel</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -48,20 +48,20 @@ namespace Infosys.QuickKart.Services.Controllers
         }
 
         [HttpGet]
-        //public Common.Models.Rating GetProductReviewByCustomer(string emailId, string productId)
-        //{
-        //    var rating = new Common.Models.Rating();
-        //    try
-        //    {
-        //        CustomerBL customerBLObj = new CustomerBL();
-        //        rating = customerBLObj.GetProductReviewByCustomer(emailId, productId);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        rating = null;
-        //    }
-        //    return rating;
-        //}
+        public Common.Models.Rating GetProductReviewByCustomer(string emailId, string productId)
+        {
+            var rating = new Common.Models.Rating();
+            try
+            {
+                CustomerBL customerBLObj = new CustomerBL();
+                rating = customerBLObj.GetProductReviewByCustomer(emailId, productId);
+            }
+            catch (Exception ex)
+            {
+                rating = null;
+            }
+           return rating;
+        }
 
         [HttpPut]
         public bool UpdateReviewComments(Common.Models.Rating rating)

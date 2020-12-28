@@ -1,3 +1,9 @@
+<div *ngIf="commonLayout">
+  <app-commom-layout></app-commom-layout>
+</div>
+<div *ngIf="customerLayout">
+  <app-customer-layout></app-customer-layout>
+</div>
 <div class="container">
   <table class="table">
     <tr style="background-color:deepskyblue">
@@ -5,12 +11,18 @@
       <th>Price</th>
       <th>Quantity</th>
       <th>Total amount</th>
+      <th style="text-align:center" colspan="2">Action(s)</th>
     </tr>
-    <tr *ngFor="let c of cart" style="background-color:skyblue">
-      <th>{{c.ProductName}}</th>
-      <th>{{c.Price}}</th>
-      <th>{{c.Quantity}}</th>
-      <th>{{c.Price *c.Quantity}}</th>
+    <tr *ngFor="let product of Products" style="background-color:skyblue">
+      <td>{{product.ProductName}}</td>
+      <td>{{product.Price}}</td>
+      <td>{{product.Quantity}}</td>
+      <td>{{product.Price *product.Quantity}}</td>
+      <td style="text-align:center"><button title="Update Quantity" (click)="updateCart(product)" class="btn">Update Quantity</button></td>
+      <td><img [src]="imageSrc"(click)="removeCart(product)"/></td>
     </tr>
   </table>
+  <div *ngIf="showError" style="">
+    <h4 class="jumbotron" style="text-align:center;">{{errorMsg}}</h4>
+  </div>
 </div>

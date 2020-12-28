@@ -1,0 +1,72 @@
+<div class="container">
+  <form #updateReview="ngForm" class="form-horozontal" (ngSubmit)="updateReviewComment(updateReview)">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h3>Update Review</h3>
+
+      <div class="form-group">
+        <label for="email" class="col-md-4" style="text-align:end">EmailId</label>
+        <div class="col-md-8">
+          <input type="email" [ngModel]="emailId" name="Email" #email class="form-control" ngModel readonly />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4" style="text-align:end">ProductId</label>
+        <div class="col-md-8">
+          <input type="text" [ngModel]="productId" name="ProductId" class="form-control" ngModel readonly />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4" style="text-align:end">ProductName</label>
+        <div class="col-md-8">
+          <input type="text" [ngModel]="productName" name="ProductName" class="form-control" ngModel readonly />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4" style="text-align:end">ReviewRating</label>
+        <div class="col-md-8">
+          <input type="text" [ngModel]="reviewRating" name="ReviewRating" #review="ngModel" class="form-control" required pattern="[1-5]{1}" ngModel readonly/>
+        </div>
+        <!--<div style="text-align:left; padding-top:5px; color:red;">
+          <div [hidden]="review.valid || review.pristine ">
+            <p>&nbsp;The rating can have only numbers between 1 to 5 </p>
+          </div>
+        </div>
+        <div *ngIf="review.errors && (review.dirty || review.touched)" style="text-align:left; padding-top:5px; color:red;">
+          <div [hidden]="!review.errors.required">
+            <p>&nbsp;Review Rating is mandatory</p>
+          </div>
+        </div>-->
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4" style="text-align:end">Review Comment</label>
+        <div class="col-md-8">
+          <input type="text" [ngModel]="reviewComments" name="ReviewComments" #reviewComment="ngModel"class="form-control" required ngModel />
+        </div>
+        <div *ngIf="reviewComment.errors && (reviewComment.dirty || reviewComment.touched)" style="text-align:left; padding-top:5px; color:red;">
+          <div [hidden]="!reviewComment.errors.required">
+            <p>&nbsp;Review Rating is mandatory</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <input type="submit" [disabled]="!updateReview.form.valid" class="btn"name="Update" />
+      </div>
+
+      <div class="col-md-4">
+       <a routerLink="/rating"> <input type="button" class="btn" value="Cancel" /></a>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+
+  </form>
+
+
+</div>

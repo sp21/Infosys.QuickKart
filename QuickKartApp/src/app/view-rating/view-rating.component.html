@@ -1,0 +1,31 @@
+
+<div *ngIf="commonLayout">
+  <app-commom-layout></app-commom-layout>
+</div>
+<div *ngIf="customerLayout">
+  <app-customer-layout></app-customer-layout>
+</div>
+<div class="container">
+  <Table class="table">
+    <tr style="background-color:lightblue;" *ngIf="rating;else elseBlock;">
+      <th>ProductName</th>
+      <th>Rating</th>
+      <th>Reviews</th>
+      <th>Action(S)</th>
+    </tr>
+    <tr *ngFor="let r of rating">
+      <th>{{r.ProductName}}</th>
+      <th *ngIf="r.ReviewRating==1"><span class="glyphicon glyphicon-star" style="color:gold;"></span></th>
+      <th *ngIf="r.ReviewRating==2"><span class="glyphicon glyphicon-star" style="color:gold;"></span><span class="glyphicon glyphicon-star" style="color:gold;"></span></th>
+      <th *ngIf="r.ReviewRating==3"><span class="glyphicon glyphicon-star" style="color:gold;"></span><span class="glyphicon glyphicon-star" style="color:gold;"></span><span class="glyphicon glyphicon-star" style="color:gold;"></span></th>
+      <th *ngIf="r.ReviewRating==4"><span class="glyphicon glyphicon-star" style="color:gold;"></span><span class="glyphicon glyphicon-star" style="color:gold;"></span><span class="glyphicon glyphicon-star" style="color:gold;"></span><span class="glyphicon glyphicon-star" style="color:gold;"></span></th>
+      <th *ngIf="r.ReviewRating==5"><span class="glyphicon glyphicon-star" style="color:gold;"></span><span class="glyphicon glyphicon-star" style="color:gold;"></span><span class="glyphicon glyphicon-star" style="color:gold;"></span><span class="glyphicon glyphicon-star" style="color:gold;"></span><span class="glyphicon glyphicon-star" style="color:gold;"></span></th>
+      <th>{{r.ReviewComments}}</th>
+      <th><input type="button" (click)="updateReview(r)"value="Update Review">&nbsp;<input type="button" (click)="deleteReview(r)"value="Delete Review"></th>
+
+    </tr>
+  </Table>
+  <ng-template #elseBlock>
+    <div class="jumbotron"><h3>No Rating available</h3></div>
+  </ng-template>
+</div>

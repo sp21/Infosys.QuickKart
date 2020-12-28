@@ -37,6 +37,7 @@ namespace Infosys.QuickKart.BusinessLayer
                 userObj.UserPassword = user.UserPassword;
                 userObj.Gender = user.Gender;
                 userObj.DateOfBirth = user.DateOfBirth;
+                userObj.Address=user.Address;
 
                 var dal = new QuickKartRepository();
 
@@ -261,26 +262,26 @@ namespace Infosys.QuickKart.BusinessLayer
             return status;
         }
 
-        //public Common.Models.Rating GetProductReviewByCustomer(string emailId, string productId)
-        //{
-        //    var rating = new Common.Models.Rating();
-        //    try
-        //    {
-        //        var dal = new QuickKartRepository();
-        //        var rate = dal.GetProductReviewByCustomer(emailId, productId);
+        public Common.Models.Rating GetProductReviewByCustomer(string emailId, string productId)
+        {
+            var rating = new Common.Models.Rating();
+            try
+            {
+                var dal = new QuickKartRepository();
+                var rate = dal.GetProductReviewByCustomer(emailId, productId);
 
-        //        rating.EmailId = rate.EmailId;
-        //        rating.ProductId = rate.ProductId;
-        //        rating.ReviewRating = rate.ReviewRating;
-        //        rating.ReviewComments = rate.ReviewComments;
+                rating.EmailId = rate.EmailId;
+                rating.ProductId = rate.ProductId;
+                rating.ReviewRating = rate.ReviewRating;
+                rating.ReviewComments = rate.ReviewComments;
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        rating = null;
-        //    }
-        //    return rating;
-        //}
+            }
+            catch (Exception ex)
+            {
+                rating = null;
+            }
+            return rating;
+        }
 
         public bool UpdateReviewComments(Common.Models.Rating rating)
         {

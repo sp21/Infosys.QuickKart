@@ -1,0 +1,72 @@
+<div class="container">
+  <form #registrationForm="ngForm" (ngSubmit)="submitForm(registrationForm)" class="form-horizontal" role="form">
+    <h2>Registration</h2>
+    <div class="form-group">
+      <label for="EmailId" class="col-sm-3 control-label">EmailId</label>
+      <div class="col-sm-9">
+        <input type="email" id="EmailId" name="Email" placeholder="EmailId" class="form-control" autofocus ngModel>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="col-sm-3 control-label">Enter Password</label>
+      <div class="col-sm-9">
+        <input type="password" id="password" name="Password" #pass="ngModel" placeholder="User Password" class="form-control" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autofocus ngModel>
+      </div>
+      <div style="text-align:left; padding-top:5px; color:red;">
+        <div [hidden]="pass.valid || pass.pristine">
+          <p>&nbsp;password is not entered in proper format,accept at least one number and one uppercase and lowercase letter, and at least 8 and less than 16</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPasswod" class="col-sm-3 control-label">Confirm Password</label>
+      <div class="col-sm-9">
+        <input type="password" id="cpassword" #cpass="ngModel" name="ConfirmPassword" placeholder="Confirm User Password" class="form-control" pattern="{{pass.value}}" required autofocus ngModel>
+      </div>
+      <div style="text-align:left; padding-top:5px; color:red;">
+        <div [hidden]="cpass.valid || cpass.pristine">
+          <p>&nbsp;password and confirm password doestn't match</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="gender" class="col-md-3 control-label">Gender</label>
+      <div class="col-sm-9">
+        <select type="text" id="gender" name="Gender" class="form-control" ngModel>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="birthDate" class="col-sm-3 control-label">Date of Birth*</label>
+      <div class="col-sm-9">
+        <input type="date" id="birthDate" name="DateOfBirth" class="form-control" ngModel>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address" class="col-sm-3 control-label">Address</label>
+      <div class="col-sm-9">
+        <input type="text" id="address" name="Address" #address="ngModel"placeholder="address" class="form-control" required ngModel>
+      </div>
+      <div [hidden]="address.valid||address.pristine">
+        <p style="text-align:left; padding-top:5px; color:red;">Address is Required</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-2">
+        <input type="submit" class="btn" name="Register" value="Register" style="background-color:green;color:white" class="form-control" >
+      </div>
+      <div class="col-sm-2">
+
+        <input class="col-sm-2" type="reset" name="Reset" value="Reset" style="background-color:green;color:white" class="form-control" >
+       </div>
+        <div class="col-sm-4"></div>
+
+      </div>
+</form> <!-- /form -->
+</div> <!-- ./container -->

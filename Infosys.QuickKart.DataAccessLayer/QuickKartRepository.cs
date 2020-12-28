@@ -64,7 +64,7 @@ namespace Infosys.QuickKart.DataAccessLayer
                 Context.SaveChanges();
                 status = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 status = false;
             }
@@ -252,21 +252,21 @@ namespace Infosys.QuickKart.DataAccessLayer
             }
             return status;
         }
-     
-        //public Rating GetProductReviewByCustomer(string emailId, string productId)
-        //{
-        //    Rating rating;           
-        //    try
-        //    {
-        //        rating = Context.Ratings.Where(r => r.EmailId == emailId && r.ProductId == productId).Select(r => r).SingleOrDefault();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        rating = null;
-        //    }
-        //    return rating;
-        //}
-     
+
+        public Rating GetProductReviewByCustomer(string emailId, string productId)
+        {
+            Rating rating;
+            try
+            {
+                rating = Context.Ratings.Where(r => r.EmailId == emailId && r.ProductId == productId).Select(r => r).SingleOrDefault();
+            }
+            catch (Exception ex)
+            {
+                rating = null;
+            }
+            return rating;
+        }
+
         public bool UpdateReviewComments(string emailId, string productId, string newComment)
         {
             bool status = false;
